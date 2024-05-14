@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Payment Information</title>
+    <style>
+        .ulOne {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 18px 20px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #04AA6D;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .component {
+            position: relative;
+            width: 30%;
+            margin: 5rem auto;
+            padding: 1rem;
+
+            box-shadow: 2px 2px 10px #454545;
+            background-color: #FFFFFF;
+
+            text-align: center;
+        }
+
+        .credit-card h2 {
+            color: rgba(4,99,128,1);
+        }
+
+        .component .credit-card form {
+            display:flex;
+            flex-direction: column;
+        }
+
+        .component .credit-card .line {
+            display: flex;
+        }
+
+        .component .credit-card .line input {
+            width: 20%; /* on définit une taille plus petite qu'il le faut, le flex-grow fera le reste */
+            flex: 1;
+            margin: 0.4rem 0.3rem;
+        }
+
+        input {
+            border: none;
+            border-bottom: 1px solid rgba(0,0,0,.12);
+            margin: 1rem 0;
+            padding: 4px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        input::-webkit-input-placeholder {
+            color: #AAAAAA;
+        }
+
+        .valid-button {
+            border: 0;
+            padding: 1rem 2rem;
+            background-color: rgba(4,99,128,0.9);
+            color: #EFECCA;
+            font-weight:bold;
+            margin-top:2rem;
+            box-shadow: 1px 1px 1px black;
+        }
+
+        .valid-button:hover {
+            background-color: rgba(4,99,128,1);
+            box-shadow: none;
+        }
+
+        [type="date"] {
+            background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+        }
+        [type="date"]::-webkit-inner-spin-button {
+            display: none;
+        }
+        [type="date"]::-webkit-calendar-picker-indicator {
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body>
+<ul class="ulOne">
+    <li><a href="search-main.html">Home</a></li>
+    <li><a href="movies.html">Top20</a></li>
+    <li><a href="result-search.html">Search</a></li>
+    <li><a href="result-browse.html">Results</a></li>
+    <li style="float:right"><a href="login.html">Log Out</a></li>
+    <li style="float:right"><a class="active" href="cart.html"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>&nbsp;CheckOut</a></li>
+</ul>
+<section class="component">
+    <div class="credit-card">
+        <h2>Payment Details</h2>
+        <form id="payment_form" method="POST" action="api/payment">
+            <input name="creditcard" type="text" placeholder="Card Number" />
+            <div class="line">
+                <input name="Firstname" type="text" placeholder="First Name" />
+                <input name="Lastname" type="text" placeholder="Last Name" />
+            </div>
+            <div class="line">
+                <input name="expdate" class="title" type="date" placeholder="MM/DD/YYYY" />
+            </div>
+            <button type="submit" class="valid-button">Place Order</button>
+        </form>
+    </div>
+    <div id="payment_error_message"></div>
+</section>
+
+<script>
+    // var urlParams = new URLSearchParams(window.location.search);
+    // var total = urlParams.get('total');
+    // var totalElement = document.getElementById("total_price");
+    // totalElement.textContent = "Total: $" + total;
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="payment.js"></script>
+</body>
+</html>

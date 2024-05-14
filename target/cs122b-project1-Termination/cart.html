@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Cart Information</title>
+    <style>
+        .ulOne {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .ulTwo {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f4f4f4;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 18px 20px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #04AA6D;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1em;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 600px;
+        }
+
+        th {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f8f8;
+        }
+
+        /**, *:before, *:after {*/
+        /*    box-sizing: border-box;*/
+        /*}*/
+
+        /*.cf:before, .cf:after {*/
+        /*    content: " ";*/
+        /*    display: table;*/
+        /*}*/
+        /*.cf:after {*/
+        /*    clear: both;*/
+        /*}*/
+        /*.cf {*/
+        /*    *zoom: 1;*/
+        /*}*/
+
+        /*!* Main Wrapper *!*/
+        /*.wrap {*/
+        /*    width: 75%;*/
+        /*    max-width: 960px;*/
+        /*    margin: 0 auto;*/
+        /*    padding: 5% 0;*/
+        /*    margin-bottom: 5em;*/
+        /*}*/
+
+
+        /*!* Cart Items *!*/
+        /*.cart .items {*/
+        /*    display: block;*/
+        /*    width: 100%;*/
+        /*    vertical-align: middle;*/
+        /*    padding: 1.5em;*/
+        /*    border-bottom: 1px solid #fafafa;*/
+        /*}*/
+        /*.cart .items.even {*/
+        /*    background: #fafafa;*/
+        /*}*/
+        /*.cart .items.odd {*/
+        /*    background: #fafafa;*/
+        /*}*/
+        /*.cart .items .infoWrap {*/
+        /*    display: table;*/
+        /*    width: 100%;*/
+        /*}*/
+        /*.cart .items .cartSection {*/
+        /*    display: table-cell;*/
+        /*    vertical-align: middle;*/
+        /*}*/
+        /*.cart .items .cartSection .itemNumber {*/
+        /*    font-size: .75em;*/
+        /*    color: #777;*/
+        /*    margin-bottom: .5em;*/
+        /*}*/
+        /*.cart .items .cartSection h3 {*/
+        /*    font-size: 1em;*/
+        /*    font-weight: bold;*/
+        /*    text-transform: uppercase;*/
+        /*    letter-spacing: .025em;*/
+        /*}*/
+        /*.cart .items .cartSection p {*/
+        /*    display: inline-block;*/
+        /*    font-size: .85em;*/
+        /*    color: #777777;*/
+        /*}*/
+        /*.cart .items .cartSection p.stockStatus {*/
+        /*    color: #04AA6D;*/
+        /*    font-weight: bold;*/
+        /*    padding: .5em 0 0 1em;*/
+        /*    text-transform: uppercase;*/
+        /*}*/
+        /*.cart .items .cartSection p.stockStatus.out {*/
+        /*    color: #F69679;*/
+        /*}*/
+        /*!* Cart Items Continued *!*/
+        /*.cart .items .cartSection input.qty {*/
+        /*    width: 2em;*/
+        /*    text-align: center;*/
+        /*    font-size: 1em;*/
+        /*    padding: .25em;*/
+        /*    margin: 1em .5em 0 0;*/
+        /*}*/
+        /*.cart .items .cartSection .itemImg {*/
+        /*    width: 8em;*/
+        /*    display: inline;*/
+        /*    padding-right: 1em;*/
+        /*}*/
+
+
+
+        /*!* Total and Checkout *!*/
+        /*.subtotal {*/
+        /*    float: right;*/
+        /*    width: 35%;*/
+        /*}*/
+
+        /*.subtotal .cf{*/
+        /*    background: #fafafa;*/
+        /*}*/
+        /*.subtotal .totalRow {*/
+        /*    padding: .5em;*/
+        /*    text-align: right;*/
+        /*}*/
+        /*.subtotal .totalRow.final {*/
+        /*    font-size: 1.25em;*/
+        /*    font-weight: bold;*/
+        /*}*/
+        /*.subtotal .totalRow span {*/
+        /*    display: inline-block;*/
+        /*    padding: 0 0 0 1em;*/
+        /*    text-align: right;*/
+        /*}*/
+        /*.subtotal .totalRow .label {*/
+        /*    font-family: 'Montserrat', sans-serif;*/
+        /*    font-size: .85em;*/
+        /*    text-transform: uppercase;*/
+        /*}*/
+        /*.subtotal .totalRow .value {*/
+        /*    letter-spacing: -.025em;*/
+        /*    width: 35%;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<ul class="ulOne">
+    <li><a href="search-main.html">Home</a></li>
+    <li><a href="movies.html">Top20</a></li>
+    <li><a href="result-search.html">Search</a></li>
+    <li><a href="result-browse.html">Results</a></li>
+    <li style="float:right"><a href="login.html">Log Out</a></li>
+    <li style="float:right"><a class="active" href="cart.html"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>&nbsp; CheckOut</a></li>
+</ul>
+<div class="wrap cf">
+    <div class="heading cf">
+        <h1>My Cart</h1>
+    </div>
+    <div class="table-container">
+        <table id="shopping_cart" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody id="shopping_cart_body"></tbody>
+        </table>
+    </div>
+
+    <div class="subtotal cf" style="float:right">
+        <ul class="ulTwo">
+            Total:
+            <p id="total"></p>
+            <p id="proceed"></p>
+        </ul>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script src="cart.js"></script>
+</body>
+</html>

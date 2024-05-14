@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Bootstrap search box or search panel like amazon.com"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="author" content="Satyendra Kumar Singh"/>
+
+    <title>Main Page</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 18px 20px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #04AA6D;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 600px;
+        }
+
+        th {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f8f8;
+        }
+
+        .Mid a.logo {
+            font-family: "Times New Roman", serif;
+            color: black;
+            font-size: 50px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .midLine {
+            margin:1em;
+            font-family: "Times New Roman", serif;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            width: auto;
+            text-align:center;
+            padding: 10px 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Creates four columns of equal width */
+            grid-gap: 5px; /* Optional: adds space between rows and columns */
+        }
+
+        .midLine a {
+            text-align: center; /* Centers text within each link */
+            padding: 5px; /* Adds some padding around the text */
+        }
+
+
+        .icon {
+            margin:10px 50px 20px;
+            font-family: "Times New Roman", serif;
+            color: black;
+            font-size: 25px;
+            font-weight: bold;
+            width: auto;
+            text-align:center;
+        }
+
+        .contain {
+            text-align: center;
+            font-family: "Times New Roman", serif;
+            color: black;
+            font-size: 25px;
+            font-weight: bold;
+            width: auto;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li><a class="active" href="search-main.html">Home</a></li>
+    <li><a href="movies.html">Top20</a></li>
+    <li><a href="result-search.html">Search</a></li>
+    <li><a href="result-browse.html">Results</a></li>
+    <li style="float:right"><a href="login.html">Log Out</a></li>
+    <li style="float:right"><a href="cart.html"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>&nbsp; CheckOut</a></li>
+</ul>
+
+
+<div class="Mid">
+    <div class="contain">
+        <a href="search-main.html" class="logo">Fablix</a>
+        <p>Browsing by movie genres</p>
+    </div>
+    <div class="midLine">
+        <div id="genreLink"></div>
+        <br><br>
+    </div>
+        <div class="contain">
+            <p>Browsing by movie title</p>
+        </div>
+    <div class="icon">
+        <div id="prefixLink"></div>
+    </div>
+    <div class="icon">
+        <div id="prefix0link"></div>
+    </div>
+</div>
+
+<!-- Load jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script src="search-main.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Result Browse</title>
+  <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 18px 20px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #111;
+    }
+
+    button {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 18px 20px;
+      text-decoration: none;
+    }
+
+    .active {
+      background-color: #04AA6D;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1em;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 600px;
+    }
+
+    th {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f8f8f8;
+    }
+  </style>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 24px 28px;
+      font-size: 30px;
+    }
+
+    #pagination-button .btn {
+      padding: 16px 24px;
+      font-size: 16px;
+      margin: 8px;
+      background-color: #04AA6D;
+    }
+
+
+  </style>
+</head>
+<body>
+<ul>
+  <li><a href="search-main.html">Home</a></li>
+  <li><a href="movies.html">Top20</a></li>
+  <li><a href="result-search.html">Search</a></li>
+  <li><a class="active" href="result-browse.html">Results</a></li>
+  <li style="float:right"><a href="login.html">Log Out</a></li>
+  <li style="float:right"><a href="cart.html"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>&nbsp; CheckOut</a></li>
+</ul>
+
+<h1>Results</h1>
+
+<form id="tuning" method="GET" action="api/result">
+  <label for="paging">Page by: </label>
+  <select id="paging" name="paging">
+    <option value="10">10</option>
+    <option value="25">25</option>
+    <option value="50">50</option>
+    <option value="100">100</option>
+  </select>
+  <label for="sorting">Sort by:</label>
+  <select id="sorting" name="sorting">
+    <option value="1">Title ↓ Rating ↓</option>
+    <option value="2">Title ↓ Rating ↑</option>
+    <option value="3">Title ↑ Rating ↓</option>
+    <option value="4">Title ↑ Rating ↑</option>
+    <option value="5">Rating ↓ Title ↓</option>
+    <option value="6">Rating ↓ Title ↑</option>
+    <option value="7">Rating ↑ Title ↓</option>
+    <option value="8">Rating ↑ Title ↑</option>
+  </select>
+  <input type="submit" value="Submit">
+</form>
+
+<!-- Id "star_table" is useful for jQuery to find the html element with id, class here is mapping to Bootstrap defined class CSS -->
+<div class="table-container">
+  <table id=result_table class="table table-striped">
+    <!-- Create a table header -->
+    <thead>
+    <tr>
+      <!-- Titles of each column-->
+      <th>Title</th>
+      <th>Year</th>
+      <th>Director</th>
+      <th>Genres</th>
+      <th>Stars</th>
+      <th>Rating</th>
+      <th>Cart</th>
+    </tr>
+    </thead>
+    <tbody id=result_table_body></tbody>
+  </table>
+</div>
+
+
+<div class="pageLabel">
+  <label>Page by:</label>
+  <select id="rows-select" onchange="updateRows()">
+    <option value="10">10</option>
+    <option value="25">25</option>
+    <option value="50">50</option>
+    <option value="100">100</option>
+  </select>
+</div>
+<div class="container">
+  <div id="pagination-button"></div>
+</div>
+
+
+
+<!-- Load jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script src="result-browse.js"></script>
+</body>
+
+
+</html>
